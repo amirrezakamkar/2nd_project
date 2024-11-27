@@ -883,7 +883,9 @@
           <datasource-dependencies datasource='federated.1jg4byr190eog51a6wtrc0on4uv0'>
             <column datatype='string' name='[Variation]' role='dimension' type='nominal' />
             <column-instance column='[clnt_age]' derivation='Avg' name='[avg:clnt_age:qk]' pivot='key' type='quantitative' />
+            <column caption='Client Id' datatype='integer' name='[client_id]' role='dimension' type='ordinal' />
             <column caption='Clnt Age' datatype='real' name='[clnt_age]' role='measure' type='quantitative' />
+            <column-instance column='[client_id]' derivation='Count' name='[cnt:client_id:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Variation]' derivation='None' name='[none:Variation:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <aggregation value='true' />
@@ -900,7 +902,7 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <color column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' />
+              <color column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[cnt:client_id:qk]' />
               <text column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[avg:clnt_age:qk]' />
             </encodings>
             <style>
@@ -933,7 +935,9 @@
           <datasource-dependencies datasource='federated.1jg4byr190eog51a6wtrc0on4uv0'>
             <column datatype='string' name='[Variation]' role='dimension' type='nominal' />
             <column-instance column='[clnt_tenure_yr]' derivation='Avg' name='[avg:clnt_tenure_yr:qk]' pivot='key' type='quantitative' />
+            <column caption='Client Id' datatype='integer' name='[client_id]' role='dimension' type='ordinal' />
             <column caption='Clnt Tenure Yr' datatype='real' name='[clnt_tenure_yr]' role='dimension' type='quantitative' />
+            <column-instance column='[client_id]' derivation='Count' name='[cnt:client_id:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Variation]' derivation='None' name='[none:Variation:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <aggregation value='true' />
@@ -954,7 +958,7 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <color column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' />
+              <color column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[cnt:client_id:qk]' />
               <text column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[avg:clnt_tenure_yr:qk]' />
             </encodings>
             <style>
@@ -1250,7 +1254,9 @@
           </datasources>
           <datasource-dependencies datasource='federated.1jg4byr190eog51a6wtrc0on4uv0'>
             <column datatype='string' name='[Variation]' role='dimension' type='nominal' />
+            <column-instance column='[client_id]' derivation='Avg' name='[avg:client_id:qk]' pivot='key' type='quantitative' />
             <column-instance column='[num_accts]' derivation='Avg' name='[avg:num_accts:qk]' pivot='key' type='quantitative' />
+            <column caption='Client Id' datatype='integer' name='[client_id]' role='dimension' type='ordinal' />
             <column-instance column='[Variation]' derivation='None' name='[none:Variation:nk]' pivot='key' type='nominal' />
             <column caption='Num Accts' datatype='real' name='[num_accts]' role='measure' type='quantitative' />
           </datasource-dependencies>
@@ -1264,23 +1270,23 @@
             </view>
             <mark class='Automatic' />
             <encodings>
-              <color column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' />
+              <color column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[avg:client_id:qk]' />
+              <text column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[avg:num_accts:qk]' />
             </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
           </pane>
         </panes>
         <rows>[federated.1jg4byr190eog51a6wtrc0on4uv0].[avg:num_accts:qk]</rows>
         <cols>[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]</cols>
       </table>
-      <simple-id uuid='{C73EFDE4-3519-496D-AD58-A46C8BA9F1BF}' />
+      <simple-id uuid='{771E2C9E-D2F2-4492-96A5-E9CCE4F7BE45}' />
     </worksheet>
     <worksheet name='Sheet 8'>
-      <layout-options>
-        <title>
-          <formatted-text>
-            <run>Average logins in 6 months in test and control groups</run>
-          </formatted-text>
-        </title>
-      </layout-options>
       <table>
         <view>
           <datasources>
@@ -1288,8 +1294,6 @@
           </datasources>
           <datasource-dependencies datasource='federated.1jg4byr190eog51a6wtrc0on4uv0'>
             <column datatype='string' name='[Variation]' role='dimension' type='nominal' />
-            <column-instance column='[logons_6_mnth]' derivation='Avg' name='[avg:logons_6_mnth:qk]' pivot='key' type='quantitative' />
-            <column caption='Logons 6 Mnth' datatype='real' name='[logons_6_mnth]' role='measure' type='quantitative' />
             <column-instance column='[Variation]' derivation='None' name='[none:Variation:nk]' pivot='key' type='nominal' />
           </datasource-dependencies>
           <aggregation value='true' />
@@ -1301,15 +1305,12 @@
               <breakdown value='auto' />
             </view>
             <mark class='Automatic' />
-            <encodings>
-              <color column='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' />
-            </encodings>
           </pane>
         </panes>
-        <rows>[federated.1jg4byr190eog51a6wtrc0on4uv0].[avg:logons_6_mnth:qk]</rows>
+        <rows />
         <cols>[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]</cols>
       </table>
-      <simple-id uuid='{0738E4D8-B374-4AA7-87D1-F6B85891472A}' />
+      <simple-id uuid='{1C78F23E-3B11-494C-BCDB-B758DD71316C}' />
     </worksheet>
   </worksheets>
   <dashboards>
@@ -1319,9 +1320,9 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='97794' id='7' param='horz' type-v2='layout-flow' w='98770' x='615' y='1103'>
-            <zone h='97794' id='5' type-v2='layout-basic' w='86472' x='615' y='1103'>
-              <zone h='97794' id='3' name='Sheet 1' w='21614' x='615' y='1103'>
+          <zone h='97800' id='7' param='horz' type-v2='layout-flow' w='98770' x='615' y='1100'>
+            <zone h='97800' id='5' type-v2='layout-basic' w='86472' x='615' y='1100'>
+              <zone h='97800' id='3' name='Sheet 1' w='43232' x='615' y='1100'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1329,23 +1330,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='97794' id='9' name='Sheet 2' w='21622' x='65465' y='1103'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='97794' id='12' name='Sheet 7' w='21620' x='43845' y='1103'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='97794' id='14' name='Sheet 8' w='21616' x='22229' y='1103'>
+              <zone h='97800' id='9' name='Sheet 2' w='43240' x='43847' y='1100'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1354,8 +1339,8 @@
                 </zone-style>
               </zone>
             </zone>
-            <zone fixed-size='160' h='97794' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='12298' x='87087' y='1103'>
-              <zone h='9103' id='8' name='Sheet 1' pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' type-v2='color' w='12298' x='87087' y='1103'>
+            <zone fixed-size='160' h='97800' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='12298' x='87087' y='1100'>
+              <zone h='8940' id='8' name='Sheet 1' pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[cnt:client_id:qk]' type-v2='color' w='12298' x='87087' y='1100'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1388,7 +1373,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='8940' id='13' name='Sheet 1' pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[cnt:client_id:qk]' type-v2='color' w='12298' x='87087' y='1100'>
+                <zone h='8940' id='8' name='Sheet 1' pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[cnt:client_id:qk]' type-v2='color' w='12298' x='87087' y='1100'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1425,9 +1410,9 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='97794' id='8' param='horz' type-v2='layout-flow' w='98770' x='615' y='1103'>
-            <zone h='97794' id='6' type-v2='layout-basic' w='86472' x='615' y='1103'>
-              <zone h='48898' id='3' name='Sheet 3' w='43231' x='615' y='49999'>
+          <zone h='97796' id='8' param='horz' type-v2='layout-flow' w='98770' x='615' y='1102'>
+            <zone h='97796' id='6' type-v2='layout-basic' w='86472' x='615' y='1102'>
+              <zone h='48899' id='3' name='Sheet 3' w='43231' x='615' y='49999'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1435,7 +1420,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='97794' id='5' name='Sheet 4' w='43241' x='43846' y='1103'>
+              <zone h='97796' id='5' name='Sheet 4' w='43241' x='43846' y='1102'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1443,7 +1428,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='48896' id='10' name='Sheet 5' w='43231' x='615' y='1103'>
+              <zone h='48897' id='10' name='Sheet 5' w='43231' x='615' y='1102'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1452,8 +1437,8 @@
                 </zone-style>
               </zone>
             </zone>
-            <zone fixed-size='160' h='97794' id='7' is-fixed='true' param='vert' type-v2='layout-flow' w='12298' x='87087' y='1103'>
-              <zone h='14620' id='9' name='Sheet 4' pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:gendr:nk]' type-v2='color' w='12298' x='87087' y='1103'>
+            <zone fixed-size='160' h='97796' id='7' is-fixed='true' param='vert' type-v2='layout-flow' w='12298' x='87087' y='1102'>
+              <zone h='14601' id='9' name='Sheet 4' pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:gendr:nk]' type-v2='color' w='12298' x='87087' y='1102'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1461,7 +1446,7 @@
                   <format attr='margin' value='4' />
                 </zone-style>
               </zone>
-              <zone h='9103' id='11' name='Sheet 5' pane-specification-id='0' param='[federated.1q1s3n10jz4dv11ftr05s1j2ni03].[none:Variation:nk]' type-v2='color' w='12298' x='87087' y='15723'>
+              <zone h='9091' id='11' name='Sheet 5' pane-specification-id='0' param='[federated.1q1s3n10jz4dv11ftr05s1j2ni03].[none:Variation:nk]' type-v2='color' w='12298' x='87087' y='15703'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1543,6 +1528,28 @@
       </devicelayouts>
       <simple-id uuid='{A155499E-13B9-464F-A229-29FFE4210919}' />
     </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 3'>
+      <style />
+      <size sizing-mode='automatic' />
+      <zones />
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='84000' id='1' param='vert' type-v2='layout-flow' w='84000' x='8000' y='8000' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{E4F19F99-1C21-43BF-8DE2-3F8353EDF4E7}' />
+    </dashboard>
   </dashboards>
   <windows source-height='72'>
     <window class='worksheet' name='Sheet 1'>
@@ -1567,7 +1574,7 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[cnt:client_id:qk]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -1595,7 +1602,7 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[cnt:client_id:qk]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -1724,14 +1731,8 @@
         <viewpoint name='Sheet 2'>
           <zoom type='entire-view' />
         </viewpoint>
-        <viewpoint name='Sheet 7'>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='Sheet 8'>
-          <zoom type='entire-view' />
-        </viewpoint>
       </viewpoints>
-      <active id='3' />
+      <active id='4' />
       <simple-id uuid='{EA382D7D-FA83-435D-BC90-F75A4779EC8E}' />
     </window>
     <window class='dashboard' name='Dashboard 2'>
@@ -1749,35 +1750,12 @@
       <active id='7' />
       <simple-id uuid='{0C500509-74ED-48ED-B08B-5857AFF2D45A}' />
     </window>
-    <window class='worksheet' maximized='true' name='Sheet 7'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' type='color' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{02F993EB-DEB2-4870-B344-70E9295D072C}' />
+    <window class='dashboard' name='Dashboard 3'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{657152D9-F346-4015-8164-7F7812060EE4}' />
     </window>
-    <window class='worksheet' name='Sheet 8'>
+    <window class='worksheet' name='Sheet 7'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1799,11 +1777,34 @@
         </edge>
         <edge name='right'>
           <strip size='160'>
-            <card pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[none:Variation:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.1jg4byr190eog51a6wtrc0on4uv0].[avg:client_id:qk]' type='color' />
           </strip>
         </edge>
       </cards>
-      <simple-id uuid='{C38AC305-EDA2-4812-92AE-320A5996B44A}' />
+      <simple-id uuid='{7288E026-A471-4987-8B33-139B8F3A02A8}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 8'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A013EF02-C5E2-45FE-9146-D83BD3619E5F}' />
     </window>
   </windows>
 </workbook>
